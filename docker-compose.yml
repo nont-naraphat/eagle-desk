@@ -1,0 +1,12 @@
+services:
+  eagle-desk:
+    build: .
+    container_name: eagle-desk
+    restart: unless-stopped
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+      - EAGLE_AGENT_ID=${EAGLE_AGENT_ID:-}
+      - ENV_ID=${ENV_ID:-}
+      - VAULT_IDS=${VAULT_IDS:-}
+    ports:
+      - "8080:8080"
